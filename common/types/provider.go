@@ -108,7 +108,7 @@ func (p *protoTypeProvider) FindType(typeName string) (*expr.Type, bool) {
 		return nil, false
 	}
 
-	// TODO: verify that well-known message types are handled correctly
+	// TODO(issues/97): verify that well-known message types are handled correctly
 	if typeName != "" && typeName[0] == '.' {
 		typeName = typeName[1:]
 	}
@@ -166,7 +166,7 @@ func (p *protoTypeProvider) RegisterType(types ...ref.Type) error {
 	for _, t := range types {
 		p.revTypeMap[t.TypeName()] = t
 	}
-	// TODO: generate an error when the type name is registered more than once.
+	// TODO(issues/98): generate an error when the type name is registered more than once.
 	return nil
 }
 

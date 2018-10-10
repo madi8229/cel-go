@@ -116,7 +116,7 @@ func StandardOverloads() []*Overload {
 				return cmp
 			}},
 
-		// TODO: Verify overflow, NaN, underflow cases for numeric values.
+		// TODO(issues/95): Verify overflow, NaN, underflow cases for numeric values.
 
 		// Add operator
 		{Operator: operators.Add,
@@ -191,7 +191,7 @@ func StandardOverloads() []*Overload {
 			}},
 
 		// Type conversion functions
-		// TODO: verify type conversion safety of numeric values.
+		// TODO(issues/96): verify type conversion safety of numeric values.
 
 		// Int conversions.
 		{Operator: overloads.TypeConvertInt,

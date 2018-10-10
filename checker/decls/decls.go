@@ -30,7 +30,7 @@ var (
 	Uint   = NewPrimitiveType(expr.Type_UINT64)
 
 	// Well-known types.
-	// TODO: Replace with an abstract type registry.
+	// TODO(issues/91): Replace with an abstract type registry.
 	Any       = NewWellKnownType(expr.Type_ANY)
 	Duration  = NewWellKnownType(expr.Type_DURATION)
 	Timestamp = NewWellKnownType(expr.Type_TIMESTAMP)
@@ -178,7 +178,7 @@ func NewWellKnownType(wellKnown expr.Type_WellKnownType) *expr.Type {
 func NewWrapperType(wrapped *expr.Type) *expr.Type {
 	primitive := wrapped.GetPrimitive()
 	if primitive == expr.Type_PRIMITIVE_TYPE_UNSPECIFIED {
-		// TODO: return an error
+		// TODO(issues/92): return an error
 		panic("Wrapped type must be a primitive")
 	}
 	return &expr.Type{

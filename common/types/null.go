@@ -53,7 +53,7 @@ func (n Null) ConvertToNative(typeDesc reflect.Type) (interface{}, error) {
 		}
 	}
 	// By default return 'null'.
-	// TODO: determine whether there are other valid conversions for `null`.
+	// TODO(issues/93): determine whether there are other valid conversions for `null`.
 	return structpb.NullValue_NULL_VALUE, nil
 }
 

@@ -87,13 +87,13 @@ const (
 	// Index overloads
 	IndexList    = "index_list"
 	IndexMap     = "index_map"
-	IndexMessage = "index_message" // TODO: introduce concept of types.Message
+	IndexMessage = "index_message" // TODO(issues/94): introduce concept of types.Message
 
 	// In operators
 	DeprecatedIn = "in"
 	InList       = "in_list"
 	InMap        = "in_map"
-	InMessage    = "in_message" // TODO: introduce concept of types.Message
+	InMessage    = "in_message" // TODO(issues/94): introduce concept of types.Message
 
 	// Size overloads
 	Size           = "size"

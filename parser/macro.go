@@ -21,7 +21,7 @@ import (
 	expr "google.golang.org/genproto/googleapis/api/expr/v1alpha1"
 )
 
-// TODO: Consider moving macros to common.
+// TODO(issues/83): Consider moving macros to common.
 
 // Macros type alias for a collection of Macros.
 type Macros []Macro
@@ -164,7 +164,7 @@ func makeQuantifier(kind quantifierKind, p *parserHelper, ctx interface{}, targe
 		step = p.newGlobalCall(ctx, operators.LogicalOr, accuIdent(), args[1])
 		result = accuIdent()
 	case quantifierExistsOne:
-		// TODO: make consistent with the CEL semantics.
+		// TODO(issues/84): make consistent with the CEL semantics.
 		zeroExpr := p.newLiteralInt(ctx, 0)
 		oneExpr := p.newLiteralInt(ctx, 1)
 		init = zeroExpr
@@ -198,7 +198,7 @@ func makeMap(p *parserHelper, ctx interface{}, target *expr.Expr, args []*expr.E
 	accuExpr := p.newIdent(ctx, accumulatorName)
 	init := p.newList(ctx)
 	condition := p.newLiteralBool(ctx, true)
-	// TODO: use compiler internal method for faster, stateful add.
+	// TODO(issues/85): use compiler internal method for faster, stateful add.
 	step := p.newGlobalCall(ctx, operators.Add, accuExpr, p.newList(ctx, fn))
 
 	if filter != nil {
@@ -217,7 +217,7 @@ func makeFilter(p *parserHelper, ctx interface{}, target *expr.Expr, args []*exp
 	accuExpr := p.newIdent(ctx, accumulatorName)
 	init := p.newList(ctx)
 	condition := p.newLiteralBool(ctx, true)
-	// TODO: use compiler internal method for faster, stateful add.
+	// TODO(issues/86): use compiler internal method for faster, stateful add.
 	step := p.newGlobalCall(ctx, operators.Add, accuExpr, p.newList(ctx, args[0]))
 	step = p.newGlobalCall(ctx, operators.Conditional, filter, step, accuExpr)
 	return p.newComprehension(ctx, v, target, accumulatorName, init, condition, step, accuExpr)

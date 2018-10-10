@@ -19,7 +19,7 @@ import (
 )
 
 // Metadata interface for accessing position information about expressions.
-// TODO(jimlarson) Replace with common.Source.
+// TODO(issues/90) Replace with common.Source.
 type Metadata interface {
 	// IdOffset returns raw character offset of an expression within
 	// Source, or false if the expression cannot be found.

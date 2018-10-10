@@ -40,7 +40,7 @@ type Activation interface {
 
 // NewActivation returns an activation based on a map-based binding where the
 // map keys are expected to be qualified names used with ResolveName calls.
-// TODO: supply references from checkedpb.proto.
+// TODO(issues/87): supply references from checkedpb.proto.
 func NewActivation(bindings map[string]interface{}) Activation {
 	return &mapActivation{bindings: bindings}
 }
@@ -50,7 +50,7 @@ func NewActivation(bindings map[string]interface{}) Activation {
 //
 // Named bindings may lazily supply values by providing a function which
 // accepts no arguments and produces an interface value.
-// TODO: consider passing the current activation to the supplier.
+// TODO(issues/88): consider passing the current activation to the supplier.
 type mapActivation struct {
 	references map[int64]ref.Value
 	bindings   map[string]interface{}

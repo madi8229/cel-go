@@ -27,7 +27,7 @@ type astPruner struct {
 	state EvalState
 }
 
-// TODO Consider having a separate walk of the AST that finds common
+// TODO(issues/99): Consider having a separate walk of the AST that finds common
 // subexpressions. This can be called before or after constant folding to find
 // common subexpressions.
 
@@ -125,7 +125,7 @@ func (p *astPruner) prune(node *expr.Expr) (*expr.Expr, bool) {
 	}
 	if val, valueExists := p.value(node.GetId()); valueExists && !types.IsUnknownOrError(val) {
 
-		// TODO if we have a list or struct, create a list/struct
+		// TODO(issues/100): if we have a list or struct, create a list/struct
 		// expression. This is useful especially if these expressions
 		// are result of a function call.
 
